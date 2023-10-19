@@ -1,0 +1,49 @@
+:root {
+    /* Colors */
+
+    --bg-main: #ffffff;
+    /* Background color */
+    --bg-alt: #f4f4f4;
+    /* Background color for alternate sections */
+    --bg-hover: #f9f9f9;
+    /* Background color for hover states on both bg-main and bg-alt */
+
+    --text-color-body: #1a1a1a;
+    /* Body text on background color */
+    --text-color-body-soft: #707070;
+    /* De-emphasised body text */
+    --text-color-heading: var(--text-color-body);
+    /* Headings on background color */
+
+    /* The border color is used for outlining some elements, or for section dividers.
+    It is considered decorative and has no contrast requirement.
+    It can not be used for text or meaningful icons. */
+
+    --border-color: #707070;
+    --border-color-soft: #d8d8d8;
+
+    /* The accent color is meant to contrast with other content colours.
+    It is used for important calls to action. Typically this is the primary brand colour.
+    The accent contrast is used for text and icons placed on the accent when used as background.
+    The accent and accent hover colours must meet WCAG 3:1 contrast ratio against the accent contrast colour. */
+
+    --accent: #00a0d0;
+    --accent-contrast: #ffffff;
+    --accent-hover: #0393be;
+
+    /* Typography */
+
+    /* --font-family-heading: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"; */
+    /* Use a native font stack for now */
+    --font-family-heading: "Source Sans Pro", sans-serif;
+    --font-family-body: "Oxygen";
+    --font-size: 16px;
+    /* Base font size */
+    --font-weight: 400;
+    --line-height: 1.5;
+    /* Base line height. Relative to font size. 24px. Line-heights and margins should always be a multiple of it. */
+    --leading: 1.5rem;
+    /* Same as line height. Relative to font size. 24px. */
+    --headings-scale-factor: 1.414rem;
+    /* Slightly smaller than leading for tight headings */
+}
