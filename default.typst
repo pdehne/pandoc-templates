@@ -9,15 +9,35 @@ $definitions.typst()$
     .join()
 }
 
+#set table(
+  inset: 6pt,
+  stroke: none
+)
+
+#show figure.where(
+  kind: table
+): set figure.caption(position: $if(table-caption-position)$$table-caption-position$$else$top$endif$)
+
+#show figure.where(
+  kind: image
+): set figure.caption(position: $if(figure-caption-position)$$figure-caption-position$$else$bottom$endif$)
+
 $if(template)$
 #import "$template$": conf
 $else$
 $template.typst()$
 $endif$
 
+$for(header-includes)$
+$header-includes$
+
+$endfor$
 #show: doc => conf(
 $if(title)$
   title: [$title$],
+$endif$
+$if(subtitle)$
+  subtitle: [$subtitle$],
 $endif$
 $if(author)$
   authors: (
@@ -28,11 +48,14 @@ $if(author.name)$
       email: [$author.email$] ),
 $else$
     ( name: [$author$],
-      affiliation: [],
-      email: [] ),
+      affiliation: "",
+      email: "" ),
 $endif$
 $endfor$
     ),
+$endif$
+$if(keywords)$
+  keywords: ($for(keywords)$$keyword$$sep$,$endfor$),
 $endif$
 $if(date)$
   date: [$date$],
@@ -65,10 +88,6 @@ $endif$
   doc,
 )
 
-$for(header-includes)$
-$header-includes$
-
-$endfor$
 $for(include-before)$
 $include-before$
 
@@ -76,14 +95,17 @@ $endfor$
 $if(toc)$
 #outline(
   title: auto,
-  depth: none
+  depth: $toc-depth$
 );
 $endif$
 
 $body$
 
 $if(citations)$
-$if(bibliographystyle)$
+$if(csl)$
+
+#set bibliography(style: "$csl$")
+$elseif(bibliographystyle)$
 
 #set bibliography(style: "$bibliographystyle$")
 $endif$
